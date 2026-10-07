@@ -7,15 +7,23 @@ board is a 3x3 list of lists, each cell is None, 'X', or 'O'.
 
 def check_winner(board):
     lines = []
+
+    # Three rows
     for r in range(3):
         lines.append([board[r][0], board[r][1], board[r][2]])
+
+    # Three columns
     for c in range(3):
         lines.append([board[0][c], board[1][c], board[2][c]])
-    # NOTE: diagonals are not included here
+
+    # Two diagonals
+    lines.append([board[0][0], board[1][1], board[2][2]])
+    lines.append([board[0][2], board[1][1], board[2][0]])
 
     for line in lines:
         if line[0] is not None and line[0] == line[1] == line[2]:
             return line[0]
+
     return None
 
 
