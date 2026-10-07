@@ -45,6 +45,10 @@ class GameEngine:
 
         row, col = cell
 
+        # Task 3: do not allow moves on occupied cells
+        if self.board[row][col] is not None:
+            return
+
         self.board[row][col] = self.current_player
 
         self.check_round_end()
